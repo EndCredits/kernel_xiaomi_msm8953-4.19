@@ -1323,10 +1323,32 @@ config TOUCHSCREEN_ROHM_BU21023
 	  To compile this driver as a module, choose M here: the
 	  module will be called bu21023_ts.
 
-config TOUCHSCREEN_ST
-	tristate "STMicroelectronics Touchscreen Driver"
+config TOUCHSCREEN_FTS
+	tristate "FocalTech touchscreens"
 	depends on I2C
-	default y
+	help
+	  Say Y here if you have a ft8716 touchscreen.
+	  Ft8716 controllers are multi touch controllers which can
+	  report 5 touches at a time.
+ 	  If unsure, say N.
+ 	  To compile this driver as a module, choose M here: the
+	t module will be called ft8716_ts.
+
+config TOUCHSCREEN_TD4310
+	tristate "synaptics touchscreens"
+	depends on I2C
+	help
+	  Say Y here if you have a synaptics TD4310 touchscreen.
+	  TD4310 controllers are multi touch controllers which can
+	  report 5 touches at a time.
+ 	  If unsure, say N.
+          To compile this driver as a module, choose M here: the
+	  module will be called td4310_ts.
+
+config TOUCHSCREEN_ST
+        tristate "STMicroelectronics Touchscreen Driver"
+        depends on I2C
+        default y
 	help
 	  Say Y here if you have a STMicroelectronics Touchscreen.
 
