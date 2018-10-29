@@ -30135,6 +30135,27 @@ static const struct snd_soc_dapm_route intercon_mi2s[] = {
 	{"PRI_MI2S_RX_Voice Mixer", "VoiceMMode1", "VOICEMMODE1_DL"},
 	{"PRI_MI2S_RX_Voice Mixer", "VoiceMMode2", "VOICEMMODE2_DL"},
 	{"PRI_MI2S_RX", NULL, "PRI_MI2S_RX_Voice Mixer"},
+	{"QUAT_MI2S_RX_DL_HL", "Switch", "QUAT_MI2S_DL_HL"},
+	{"QUAT_MI2S_RX", NULL, "QUAT_MI2S_RX_DL_HL"},
+#ifdef CONFIG_SND_SOC_MAX98927
+	{"QUIN_MI2S_RX_DL_HL", "Switch", "PRI_MI2S_DL_HL"},
+#else
+	{"QUIN_MI2S_RX_DL_HL", "Switch", "QUIN_MI2S_DL_HL"},
+#endif
+	{"QUIN_MI2S_RX", NULL, "QUIN_MI2S_RX_DL_HL"},
+	{"MI2S_UL_HL", NULL, "TERT_MI2S_TX"},
+	{"INT3_MI2S_UL_HL", NULL, "INT3_MI2S_TX"},
+	{"TERT_MI2S_UL_HL", NULL, "TERT_MI2S_TX"},
+	{"SEC_I2S_RX", NULL, "SEC_I2S_DL_HL"},
+	{"PRI_MI2S_UL_HL", NULL, "PRI_MI2S_TX"},
+	{"SEC_MI2S_UL_HL", NULL, "SEC_MI2S_TX"},
+	{"SEC_MI2S_RX", NULL, "SEC_MI2S_DL_HL"},
+	{"PRI_MI2S_RX", NULL, "PRI_MI2S_DL_HL"},
+	{"TERT_MI2S_RX", NULL, "TERT_MI2S_DL_HL"},
+	{"QUAT_MI2S_UL_HL", NULL, "QUAT_MI2S_TX"},
+#ifdef CONFIG_SND_SOC_MAX98927
+	{"QUIN_MI2S_UL_HL", NULL, "QUIN_MI2S_TX"},
+#endif
 
 	{"INT0_MI2S_RX_Voice Mixer", "Voip", "VOIP_DL"},
 	{"INT0_MI2S_RX_Voice Mixer", "QCHAT", "QCHAT_DL"},
